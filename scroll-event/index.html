@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        
+        #announcement {
+            position: fixed;
+            text-align: center;
+            font-size: 1.5rem;
+            
+            width: 50%;
+            height: 400px;
+            max-width: 90%;
+            margin: auto;
+            left: 10px;
+            bottom: 20px;
+            right: 20px;
+            background: #f1d770;
+            
+            padding: 15px 40px 15px 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            display: none;
+            z-index: 999;
+            font-weight: bold;
+            font-family: sans-serif;
+            transition: opacity 0.3s ease;
+            background-image: url("ghibli-park.jpg");
+            
+            background-repeat: no-repeat;
+        }
+
+/*         .announcement-text {
+            height: 80%;
+            width: 90%;
+            display: block;
+            margin: auto;
+            padding: 30px;
+            text-align: center;
+            background-color: rgba(0,0,0,0.5);
+            border-radius: 8px;
+            color: #f3d2d2;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .announcement-box img {
+            width: 100%;
+            text-align: center;
+            height: auto;
+            border-radius: 8px;
+            margin-top: 20px;
+            object-fit: fill;
+            overflow: hidden;
+        } */
+
+        #announcement.show{
+            display:block;
+        }
+
+        .close-btn {
+        position: absolute;
+        top: 5px;
+        right: 10px;
+        cursor: pointer;
+        font-size: 20px;
+        font-weight: bold;
+        }
+
+        .scrolling-div {
+        height: 2000px; 
+        background: linear-gradient(to bottom, #f0f0f0, #ccc);
+        }
+        
+        .park-image {
+            width: 100%;
+            display: block;
+            height: auto;
+            border-radius: 8px;
+            margin-top: 20px;
+            object-fit: cover;
+            overflow: hidden;
+        }
+    
+    </style>
+</head> 
+<body>
+    
+    <div class="scrolling-div">
+        <p>Just for scrolling</p>
+    </div>    
+    <div id="announcement" class="hidden">
+        <div id="announcement-text" class="announcement-text">
+            Enter the world of wonder and imagination. 
+            <br><br>
+            Enter Ghibli Park.
+        </div>
+        
+    </div>
+      
+
+    <script>
+        const announcement = document.getElementById("announcement");
+      
+        window.addEventListener("scroll", () => {
+          if (window.scrollY > 600) {
+            announcement.classList.toggle("show");
+          }
+        });
+      
+    
+      </script>
+      
+</body>
+</html>
