@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Simple Scroll-Based Video Control</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+    }
+
+    .spacer {
+      height: 800px;
+      background: #e0e0e0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .spacer2 {
+      height: 500px;
+      background: #e0e0e0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .video-wrapper {
+      padding: 50px;
+      text-align: center;
+      background: #222;
+    }
+
+    video {
+      width: 80%;
+      max-width: 700px;
+      border-radius: 10px;
+      border: 4px solid white;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="spacer">
+    <h2>Scroll down to see the video play</h2>
+  </div>
+
+  <div class="video-wrapper">
+    <video id="myVideo" src="kiki-trailer.mp4" muted autoplay loop></video>
+  </div>
+
+  <div class="spacer2">
+    <h2>Scroll past the video to pause it</h2>
+  </div>
+
+  <script>
+    const video = document.getElementById('myVideo');
+
+    window.addEventListener('scroll', function () {
+      const scrollY = window.scrollY;
+
+      // Play if we're above 700px, pause otherwise
+      if (scrollY > 300 && scrollY < 900) {
+        video.play();
+      } else {
+        video.pause();
+      }
+    });
+  </script>
+
+</body>
+</html>
